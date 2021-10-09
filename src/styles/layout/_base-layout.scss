@@ -1,0 +1,28 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+  
+    &,
+    &:after,
+    &:before {
+  
+      box-sizing: border-box;
+    }
+}
+  
+body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  
+    position: relative;
+}
+  
+img {  
+    display: block;
+    width: 100%;
+    height: auto;
+  
+    image-rendering: -webkit-optimize-contrast;
+}

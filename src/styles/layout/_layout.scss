@@ -1,0 +1,25 @@
+@use "../utils/mixins" as *;
+
+.container{
+    --container-padding: 1.5rem;
+
+    @include after-in(sm) {
+        --container-padding: 3rem;
+    }
+
+    @include after-in(md) {
+        --container-padding: 4rem;
+    }
+
+    @include after-in(lg) {
+        --container-padding: 5.5rem;
+    }
+}
+
+.container {
+    padding: 0 var(--container-padding) 0 var(--container-padding);
+}
+
+.text {
+    margin: var(--margin-s) 0 var(--margin-s) 0;
+}

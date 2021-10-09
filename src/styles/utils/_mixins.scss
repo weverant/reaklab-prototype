@@ -1,0 +1,98 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "base-sizes";
+
+@mixin fluid-font($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(math.unit($responsive)=='vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 62.5;
+
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        font-size: $min;
+    }
+
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 62.5;
+
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            font-size: $max;
+        }
+    }
+
+    @if $fallback {
+        font-size: $fallback;
+    }
+
+    font-size: $responsive;
+}
+
+@mixin font-smoothing {
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+@function is-number($value) {
+    @return meta.type-of($value)=='number';
+}
+
+@function media($size) {
+    @return map.get(base-sizes.$breakpoints, $size);
+}
+
+@mixin before-out($size) {
+    @if(is-number($size)) {
+        @media screen and (max-width: $size - 1 + "px") {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (max-width: media($size) - 1) {
+            @content;
+        }
+    }
+}
+
+@mixin before-in($size) {
+    @if(is-number($size)) {
+        @media screen and (max-width: $size + "px") {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (max-width: media($size)) {
+            @content;
+        }
+    }
+}
+
+@mixin after-in($size) {
+    @if(is-number($size)) {
+        @media screen and (min-width: ($size) + "px") {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (min-width: media($size)) {
+            @content;
+        }
+    }
+}
+
+@mixin after-out($size) {
+    @if(is-number($size)) {
+        @media screen and (min-width: ($size + 1) + "px") {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (min-width: media($size) + 1) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+$black: #000;
+$dark-grey: #323232;
+$grey: #d9d9ce;
+$white: #f7f7f7;
+
+:root {
+  --black: #{$black};
+  --dark-grey: #{$dark-grey};
+  --grey: #{$grey};
+  --background-color-w: #{$grey};
+  --background-color-b: #{$black};
+  --font-color-w: #{$grey};
+  --font-color-b: #{$black};
+}

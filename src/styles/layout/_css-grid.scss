@@ -1,0 +1,129 @@
+@use "sass:map";
+@use "../utils/base-sizes" as *;
+@use "../utils/mixins";
+
+$grid-columns: 12 !default;
+
+.main {
+    &-wrapper {
+        width: 100%;
+        min-height: 100vh;
+
+        display: grid;
+        grid-auto-rows: auto 1fr auto;
+    }
+
+    &-content {
+
+        --grid-cols: #{$grid-columns};
+        display: grid;
+        grid-gap: var(--grid-gap, 0);
+        grid-template-columns: repeat(var(--grid-cols), 1fr);
+
+        grid-template-columns: $gut 12fr $gut; //1fr 12fr 1fr
+
+        @include mixins.after-in(sm) {
+            grid-template-columns: $gut*2 12fr $gut*2;
+        }
+
+        >* {
+            grid-column-end: span var(--grid-cols)-1;
+            grid-column-start: 2;
+
+        }
+    }
+
+    &-grid {
+        display: grid;
+        grid-gap: var(--grid-gap, $gut);
+        grid-template-columns: repeat(var(--grid-cols), 1fr);
+
+        >* {
+            grid-column-end: span var(--grid-cols);
+        }
+
+        @include mixins.before-in(md) {
+            grid-gap: var(--grid-gap, $gut/3);
+        }
+    }
+}
+
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        grid-column-end: span #{$i};
+    }
+}
+
+@mixin col-size($size) {
+    @for $i from 1 through $grid-columns {
+        .col-#{$i}-#{$size} {
+            grid-column-end: span #{$i};
+        }
+
+        .col-start-#{$i}-#{$size} {
+            grid-column-start: #{$i};
+        }
+
+        .col-end-#{$i+1}-#{$size} {
+            grid-column-end: #{$i+1};
+        }
+    }
+
+    .col-end-#{$size} {
+        grid-column-end: -1;
+    }
+
+    .col-start-auto-#{$size} {
+        grid-column-start: auto;
+    }
+
+    .col-end-auto-#{$size} {
+        grid-column-end: auto;
+    }
+}
+
+
+@mixin breakpoint($breakpoint) {
+    @media (min-width: map.get($map: $breakpoints, $key: $breakpoint)) {
+        @content;
+    }
+}
+
+@each $breakpoint,
+$px in $breakpoints {
+    @include breakpoint($breakpoint) {
+        @include col-size(-#{$breakpoint});
+    }
+}
+
+.grid-gap-xs {
+    --grid-gap: var(--space-xs, $gut);
+}
+
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        grid-column-end: span #{$i};
+    }
+
+    .col-start-#{$i} {
+        grid-column-start: #{$i};
+    }
+
+    .col-end-#{$i+1} {
+        grid-column-end: #{$i+1};
+    }
+}
+
+.col-start {
+    grid-column-start: 1;
+}
+
+.col-end {
+    grid-column-end: -1;
+}
+
+body.services {
+    .main-grid:nth-child(2) {
+        grid-gap: inherit;
+    }
+}

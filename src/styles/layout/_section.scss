@@ -1,0 +1,93 @@
+.Section {
+    --sectionAngleSin:var(--angleNormalSin);
+    --sectionAngle:0;
+    --sectionPaddingNormalMax:128;
+    --sectionPaddingSmallMax:110;
+    --sectionPaddingMin:72;
+    --sectionPaddingMax:var(--sectionPaddingNormalMax);
+    --sectionPaddingTopMax:var(--sectionPaddingMax);
+    --sectionPaddingBottomMax:var(--sectionPaddingMax);
+    --sectionMarginBottom:0;
+    --sectionAngleHeight:calc(var(--windowWidth)*var(--sectionAngleSin));
+    --sectionAnglePaddingBaseMin:100;
+    --sectionAnglePaddingBaseMax:var(--sectionPaddingMax);
+    --sectionAnglePaddingTopBaseMax:var(--sectionAnglePaddingBaseMax);
+    --sectionAnglePaddingBottomBaseMax:var(--sectionAnglePaddingBaseMax);
+    --sectionOverflow:hidden;
+    --sectionTransformOrigin:100% 0;
+    --sectionBackgroundOverflow:visible;
+    position:relative;
+    z-index:1;
+    margin-bottom:var(--sectionMarginBottom);
+    color:var(--textColor);
+    scroll-margin-top:calc(var(--fixedNavHeight) + var(--fixedNavSpacing) - var(--sectionPaddingTop))
+}
+.Section--hasStickyNav {
+    --sectionOverflow:visible
+}
+.Section--hasBorderTop .Section__background {
+    border-top:1px solid rgba(230,235,241,.52)
+}
+.Section--paddingSmall {
+    --sectionPaddingMax:var(--sectionPaddingSmallMax)
+}
+.Section {
+    --sectionAnglePaddingTopBase:calc(var(--sectionAnglePaddingBaseMin)*1px + (var(--sectionAnglePaddingTopBaseMax) - var(--sectionAnglePaddingBaseMin))*(var(--windowWidth) - 375px)/737);
+    ;
+    --sectionAnglePaddingBottomBase:calc(var(--sectionAnglePaddingBaseMin)*1px + (var(--sectionAnglePaddingBottomBaseMax) - var(--sectionAnglePaddingBaseMin))*(var(--windowWidth) - 375px)/737);
+    ;
+    --sectionAnglePaddingTop:calc(var(--sectionAngleHeight) + var(--sectionAnglePaddingTopBase) - var(--sectionAngleSin)*var(--gutterWidth));
+    --sectionAnglePaddingBottom:calc(var(--sectionAngleHeight) + var(--sectionAnglePaddingBottomBase) - var(--sectionAngleSin)*var(--gutterWidth));
+    --sectionPaddingTop:calc(var(--sectionPaddingMin)*1px + (var(--sectionPaddingTopMax) - var(--sectionPaddingMin))*(var(--windowWidth) - 375px)/737);
+    ;
+    --sectionPaddingBottom:calc(var(--sectionPaddingMin)*1px + (var(--sectionPaddingBottomMax) - var(--sectionPaddingMin))*(var(--windowWidth) - 375px)/737);
+}
+@media (max-width:375px) {
+    .Section {
+     --sectionAnglePaddingTopBase:calc(var(--sectionAnglePaddingBaseMin)*1px);
+     --sectionAnglePaddingBottomBase:calc(var(--sectionAnglePaddingBaseMin)*1px);
+     --sectionPaddingTop:calc(var(--sectionPaddingMin)*1px);
+     --sectionPaddingBottom:calc(var(--sectionPaddingMin)*1px)
+    }
+}
+@media (min-width:1112px) {
+    .Section {
+     --sectionAnglePaddingTopBase:calc(var(--sectionAnglePaddingTopBaseMax)*1px);
+     --sectionAnglePaddingBottomBase:calc(var(--sectionAnglePaddingBottomBaseMax)*1px);
+     --sectionPaddingTop:calc(var(--sectionPaddingTopMax)*1px);
+     --sectionPaddingBottom:calc(var(--sectionPaddingBottomMax)*1px)
+    }
+}
+.Section__background {
+    position:relative;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    -webkit-transform-origin:var(--sectionTransformOrigin);
+    transform-origin:var(--sectionTransformOrigin);
+    -webkit-transform:skewY(var(--sectionAngle));
+    transform:skewY(var(--sectionAngle));
+    background:var(--backgroundColor);
+    overflow:hidden
+}
+.Section__masked {
+    overflow:var(--sectionOverflow)
+}
+.Section__container {
+    position:relative;
+    z-index:1;
+    display:-webkit-box;
+    display:flex;
+    -webkit-box-pack:center;
+    justify-content:center;
+}
+.Section__layoutContainer {
+    width:100%;
+    max-width:var(--layoutWidth);
+    margin:0 var(--columnPaddingNormal);
+}
+.Section__layout {
+    padding:var(--sectionPaddingTop) 0 var(--sectionPaddingBottom)
+}
+

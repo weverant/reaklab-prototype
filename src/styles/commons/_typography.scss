@@ -1,0 +1,60 @@
+@use "../utils/mixins" as *;
+@use "fonts";
+
+body,
+html {
+    font-size: 10px;
+    @include font-smoothing;
+}
+
+body {
+    font: {
+        family: fonts.$font-text;
+        weight: fonts.$weight-light;
+        style: normal;
+    }
+
+    color: var(--font-color-b);
+}
+
+p{
+    max-width: 65ch;
+}
+
+.main-wrapper {
+    font-size: 2.2rem;
+    line-height: 1.5;
+
+    @include after-in(sm) {
+        font-size: 2.3rem;
+    }
+
+    @include after-in(md) {
+        font-size: 2.4rem;
+    }
+}
+
+.title {
+    font: {
+        family: fonts.$font-title;
+        weight: fonts.$weight-title;
+        size: 3.5rem;
+    }
+
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+
+    color: salmon;
+
+    @include after-in(sm) {
+        font-size: 5.5rem;
+    }
+
+    @include after-in(md) {
+        font-size: 7.5rem;
+    }
+
+    @include after-in(lg) {
+        font-size: 10rem;
+    }
+}
