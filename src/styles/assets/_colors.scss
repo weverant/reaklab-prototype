@@ -3,6 +3,8 @@ $dark-grey: #323232;
 $grey: #d9d9ce;
 $white: #f7f7f7;
 
+$detail-color: #2E008B;
+
 :root {
   --black: #{$black};
   --dark-grey: #{$dark-grey};
@@ -11,4 +13,6 @@ $white: #f7f7f7;
   --background-color-b: #{$black};
   --font-color-w: #{$grey};
   --font-color-b: #{$black};
+
+  --detail-color: #{$detail-color};
 }

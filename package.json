@@ -1,5 +1,5 @@
 {
-  "name": "@sekoyaa/workflow",
+  "name": "@sekoyaa/reaklab",
   "version": "1.0.0",
   "description": "",
   "main": "src/views/index.html",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sekoyaa/simple-laravel-workflow.git"
+    "url": "git+https://github.com/Sekoyaa/reaklab"
   },
   "keywords": [],
   "author": "",

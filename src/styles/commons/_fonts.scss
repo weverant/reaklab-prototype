@@ -1,14 +1,9 @@
 // @import font from typekit,…
-@import url("https://use.typekit.net/uhv3ofy.css");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 
-$font-text: neue-haas-unica,helvetica,arial,sans-serif;
-$font-title: neue-haas-unica,helvetica,arial,sans-serif;
-$font-sc: neue-haas-unica,helvetica,arial,sans-serif;
+$font-text: Playfair Display,helvetica,arial,sans-serif;
+$font-title: Playfair Display,helvetica,arial,sans-serif;
 
-$weight-light: 300;
 $weight-regular: 400;
-$weight-bold: 700;
+$weight-bold: 600;
 
-$weight-title: 600;
-
-$weight-xtrabold: 800;

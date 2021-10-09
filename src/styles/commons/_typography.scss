@@ -3,14 +3,15 @@
 
 body,
 html {
-    font-size: 10px;
+    font-size: 1.1111vw;
     @include font-smoothing;
 }
 
 body {
     font: {
         family: fonts.$font-text;
-        weight: fonts.$weight-light;
+        weight: fonts.$weight-regular;
+        size: clamp(16px, 1rem, 1rem);
         style: normal;
     }
 
@@ -18,43 +19,29 @@ body {
 }
 
 p{
-    max-width: 65ch;
-}
-
-.main-wrapper {
-    font-size: 2.2rem;
-    line-height: 1.5;
-
-    @include after-in(sm) {
-        font-size: 2.3rem;
-    }
-
-    @include after-in(md) {
-        font-size: 2.4rem;
-    }
+    max-width: 45ch;
 }
 
 .title {
     font: {
         family: fonts.$font-title;
-        weight: fonts.$weight-title;
-        size: 3.5rem;
+        weight: fonts.$weight-regular;
+        size: clamp(20px, 2rem, 2rem);
     }
 
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     line-height: 1.12;
 
-    color: salmon;
-
-    @include after-in(sm) {
-        font-size: 5.5rem;
+    &__main{
+        span{
+            display: block;
+            font-size: clamp(20px, 1.4rem, 1.4rem);
+            &:first-child{
+                font-weight: fonts.$weight-bold;
+            }
+        }
     }
-
-    @include after-in(md) {
-        font-size: 7.5rem;
-    }
-
-    @include after-in(lg) {
-        font-size: 10rem;
+    &__section{
+        margin-bottom: var(--margin-xs);
     }
 }

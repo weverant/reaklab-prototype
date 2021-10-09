@@ -4,6 +4,7 @@
 :root {
     --margin-xs: 1rem;
     --margin-s: 1.5rem;
+    --margin-ms: 3.5rem;
     --margin-m: 5rem;
     --margin-l: 10rem;
     --margin-xl: 10rem;
@@ -11,6 +12,7 @@
     @include mixins.after-in(sm) {
         --margin-xs: 1rem;
         --margin-s: 2rem;
+        --margin-ms: 4rem;
         --margin-m: 6rem;
         --margin-l: 12.5rem;
         --margin-xl: 20rem;
@@ -19,6 +21,7 @@
     @include mixins.after-in(lg) {
         --margin-xs: 1rem;
         --margin-s: 2.5rem;
+        --margin-ms: 5.5rem;
         --margin-m: 7.5rem;
         --margin-l: 17.5rem;
         --margin-xl: 25rem;
@@ -28,4 +31,14 @@
 html{
     --scrollbarWidth: 0px;
     --windowWidth:calc(100vw - var(--scrollbarWidth));
+}
+
+$scale: 1.5;
+$base-size: 1rem;
+
+:root{
+    --margin-1: #{$base-size};
+    @for $i from 2 through 6 {
+        --margin-#{$i}: calc(var(--margin-#{$i - 1}) * #{$scale});
+      }
 }

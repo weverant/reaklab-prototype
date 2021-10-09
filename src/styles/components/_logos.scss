@@ -1,0 +1,10 @@
+.logo{
+    display: block;
+    mask: url("/assets/images/logo-reaklab.svg");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center center;
+    background:  var(--detail-color);
+    height: 2.6rem;
+    width: 10rem;
+}

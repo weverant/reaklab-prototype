@@ -1,6 +1,6 @@
 @use "../utils/mixins" as *;
 
-.container{
+:root{
     --container-padding: 1.5rem;
 
     @include after-in(sm) {
