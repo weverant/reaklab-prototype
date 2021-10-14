@@ -114,7 +114,6 @@ body{
 
     &__main-img{
         width: max-content;
-        // min-width: 300px;
         height: 50vh;
         max-width: 50vw;
         aspect-ratio: 16/9;
@@ -185,9 +184,3 @@ body{
 .text {
     margin: var(--margin-s) 0 var(--margin-s) 0;
 }
-
-@keyframes flexa { 
-    100% { 
-      flex-grow: 5; 
-    }
-  }
