@@ -20,8 +20,9 @@
                         <span>Prototype Reaklab</span><span>Front-end</span>
                     </h1>
                     <div>
-                        <button class="burger-menu">
-                            <span></span>
+                        <button class="menu">
+                            <span>Menu</span>
+                            <span class="menu__icon"></span>
                         </button>
                         <a class="logo" href="#">
                             <span>Reaklab Digital Agency</span>
@@ -31,16 +32,88 @@
             </header>
 
             <main class="container container__main">
-                <section class="section">
-                    <img src="" alt="" />
-                    <h2 class="title title__section">
-                        Reaklab is a small and badass agency
+                <section class="section active" style="--index: 3">
+                    <div class="section__main-img js-trigger">
+                        <img src="./assets/images/rdm.jpg" alt="" />
+                    </div>
+                    <div class="section__content">
+                        <h2 class="title title__section">
+                            Reaklab is a small and badass agency
+                        </h2>
+                        <span class="section__text"
+                            >Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit.</span
+                        >
+                        <a class="btn btn__section" href="">En savoir plus</a>
+                    </div>
+                </section>
+                <section class="section" style="--index: 1">
+                    <div class="section__main-img js-trigger">
+                        <img src="./assets/images/rdm2.jpg" alt="" />
+                    </div>
+                    <div class="section__content">
+                        <h2 class="title title__section">
+                            What about you? Let's find out!
+                        </h2>
+                        <span class="section__text"
+                            >Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit.</span
+                        >
+                        <a class="btn btn__section" href="">En savoir plus</a>
+                    </div>
+                </section>
+                <section class="section about" style="--index: -1">
+                    <div class="section__title js-trigger">
+                        <h2 class="title">À propos de Reaklab</h2>
+                    </div>
+                    <div class="section__content">
+                        <p class="section__paragraph">
+                            Vivamus sed justo ut elit placerat bibendum id vel
+                            tellus. Nam ac pharetra elit. Vestibulum posuere,
+                            urna quis condimentum sagittis, massa lacus euismod
+                            quam, nec maximus lorem metus tempor nunc. Duis
+                            vitae turpis felis. Integer gravida tincidunt
+                            euismod. Nullam suscipit condimentum ultrices. Lorem
+                            ipsum dolor sit amet, consectetur adipiscing elit.
+                            Suspendisse quis elementum nibh.
+                        </p>
+                        <a class="btn btn__section" href="">En savoir plus</a>
+                    </div>
+                </section>
+                <section class="section section__projects" style="--index: -3">
+                    <h2 class="title title--left">
+                        Découvrir une sélection de projets
                     </h2>
-                    <span
-                        >Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit.</span
-                    >
-                    <a href=""></a>
+                    <ul class="projects js-trigger">
+                        <li class="projects__el">
+                            <div class="projects__img">
+                                <img src="./assets/images/v1.jpg" alt="" />
+                            </div>
+                            <h3 class="title projects__title">
+                                On aime le code et le design
+                            </h3>
+                            <span class="section__text">Lorem merol lorem</span>
+                        </li>
+                        <li class="projects__el">
+                            <div class="projects__img">
+                                <img src="./assets/images/v2.jpg" alt="" />
+                            </div>
+                            <h3 class="title projects__title">
+                                On aime faire briller nos clients
+                            </h3>
+                            <span class="section__text">Lorem merol lorem</span>
+                        </li>
+                        <li class="projects__el">
+                            <div class="projects__img">
+                                <img src="./assets/images/v3.jpg" alt="" />
+                            </div>
+                            <h3 class="title projects__title">
+                                On crée des expériences sur mesure pour nos
+                                clients. Avec amour.
+                            </h3>
+                            <span class="section__text">Lorem merol lorem</span>
+                        </li>
+                    </ul>
                 </section>
             </main>
         </div>

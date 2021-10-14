@@ -19,14 +19,15 @@ body {
 }
 
 p{
-    max-width: 45ch;
+    max-width: 65ch;
+    line-height: 1.6;
 }
 
 .title {
     font: {
         family: fonts.$font-title;
         weight: fonts.$weight-regular;
-        size: clamp(20px, 2rem, 2rem);
+        size: clamp(24px, 2rem, 2rem);
     }
 
     letter-spacing: -0.02em;
@@ -43,5 +44,9 @@ p{
     }
     &__section{
         margin-bottom: var(--margin-xs);
+    }
+
+    &--left{
+        text-align: left;
     }
 }

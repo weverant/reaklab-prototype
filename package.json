@@ -1,5 +1,5 @@
 {
-  "name": "@sekoyaa/reaklab",
+  "name": "@weverant/reaklab",
   "version": "1.0.0",
   "description": "",
   "main": "src/views/index.html",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sekoyaa/reaklab"
+    "url": "git+https://github.com/weverant/reaklab"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +30,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^5.0.0",
+    "gsap": "^3.8.0",
     "imagemin": "^7.0.0",
     "laravel-mix": "^6.0.9",
     "postcss": "^8.2.3",
