@@ -16,6 +16,10 @@
     }
 }
 
+body{
+    --currIndex: 0;
+}
+
 .container {
     
     &__main{
@@ -25,7 +29,7 @@
         justify-content: flex-end;
 
         flex-direction: row;
-        padding-top: 10.8vh;
+        // padding-top: 10.8vh;
     }
 }
 
@@ -45,6 +49,7 @@
 
     width: $width;
     margin-right: $margin;
+    padding-top: 24.4vh;
 
     &:first-child{
         margin-left: $margin;
@@ -53,11 +58,28 @@
     overflow: hidden;
     text-align: center;
     transition: var(--duration) all var(--delay) ease-in-out;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 21.9vh;
+        left: 0;
+
+        height: 55vh;
+        width: 0.08em;
+        background-color: var(--detail-color);
+        transition: var(--duration) all var(--delay) ease-in-out;
+    }
     
     &.active{
-        margin-right: calc((var(--index) * -1) * (#{$width} + #{$margin}) + #{$margin});
+        margin-right: calc((var(--room) * -1) * (#{$width} + #{$margin}) + #{$margin});
         flex-grow: 1;
         transition: var(--duration) all var(--delay) ease-in-out;
+
+        &::after{
+            opacity: 0;
+            visibility: hidden;
+        }
 
         .section__content{
             opacity: 1;
@@ -70,13 +92,14 @@
             opacity: 0;
             visibility: hidden;
         }
-        .projects{
-            cursor: auto;
-
-            h3, span, &__el{
-                opacity: 1;
-                visibility: visible;
-            }
+        .background{
+            opacity: 0.36;
+            visibility: visible;
+        }
+        .btn__section{
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -124,12 +147,12 @@
         max-height: 50vh;
 
         position: absolute;
-        top: 50%;
+        top: 45.4vh;
         left: 50%;
-        transform: translate(-50%, -50%) rotate(-90deg);
+        transform: translate(-50%, 0) rotate(-90deg);
 
         cursor: pointer;
-        transition: var(--duration) all calc(var(--delay) / 2) ease-in-out;
+        transition: calc(var(--duration) * 0.7) all calc(var(--delay) / 2) ease-in-out;
         
         .title{
             white-space:nowrap;
@@ -153,6 +176,10 @@
 
     &__projects{
         align-items: flex-start;
+
+        .background{
+            font-size: 24vw;
+        }
     }
 }
 

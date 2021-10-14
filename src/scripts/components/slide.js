@@ -4,7 +4,7 @@ const triggers = document.querySelectorAll(".js-trigger");
 
 let flag = true;
 
-const eventInterval = (duration = 500) => {
+const eventInterval = (duration = 640) => {
     setTimeout(() => {
         flag = true;
     }, duration);
@@ -24,10 +24,6 @@ const getActiveIndex = () => {
     const active = document.querySelector(".active");
     let index;
 
-    const img = active.querySelector(".section__main-img");
-    imgTransform(img);
-    console.log(img);
-
     triggers.forEach((trigger, i) => {
         if (trigger.parentNode === active) {
             index = i;
@@ -39,11 +35,15 @@ const getActiveIndex = () => {
 const scrollDirection = (currIndex, positive) => {
     let length = positive ? triggers.length - 1 : triggers.length;
     let minimum = positive ? 0 : 1;
+
     if (currIndex < length && currIndex >= minimum) {
         let next = positive ? triggers[currIndex + 1] : triggers[currIndex - 1];
-        const section = next.parentNode;
-        const img = section.querySelector(".section__main-img");
-        reverse(img);
+        const nextSection = next.parentNode;
+        const active = document.querySelector(".active");
+        const imgNext = nextSection.querySelector(".section__main-img");
+        const imgActive = active.querySelector(".section__main-img");
+        imgTransform(imgActive);
+        reverse(imgNext);
         setActive.call(next);
     }
 };
@@ -70,11 +70,24 @@ window.addEventListener(
 
         isScrolling = setTimeout(() => {
             scroll(event);
-        }, 64);
+        }, 200);
     },
     false
 );
 
+let prev;
+
 triggers.forEach((el) => {
-    el.addEventListener("click", setActive);
+    el.addEventListener("click", (e) => {
+        prev = document.querySelector(".active");
+        setActive.call(el);
+
+        const activeSection = el.parentNode.querySelector(".section__main-img");
+        reverse(activeSection);
+
+        const prevSection = prev.querySelector(".section__main-img");
+        imgTransform(prevSection);
+
+        prev = el.parentNode;
+    });
 });

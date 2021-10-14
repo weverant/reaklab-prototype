@@ -6,6 +6,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <link rel="preload" href="./styles/main.css" as="style" />
+
         <link rel="stylesheet" type="text/css" href="./styles/main.css" />
 
         <meta name="title" content="" />
@@ -21,8 +23,10 @@
                     </h1>
                     <div>
                         <button class="menu">
-                            <span>Menu</span>
-                            <span class="menu__icon"></span>
+                            <span class="title">Menu</span>
+                            <div class="menu__icon">
+                                <span></span>
+                            </div>
                         </button>
                         <a class="logo" href="#">
                             <span>Reaklab Digital Agency</span>
@@ -32,7 +36,7 @@
             </header>
 
             <main class="container container__main">
-                <section class="section active" style="--index: 3">
+                <section class="section active" style="--room: 3; --index: 0">
                     <div class="section__main-img js-trigger">
                         <img src="./assets/images/rdm.jpg" alt="" />
                     </div>
@@ -46,8 +50,11 @@
                         >
                         <a class="btn btn__section" href="">En savoir plus</a>
                     </div>
+                    <div class="background">
+                        <span>Reaklab is a small and badass agency</span>
+                    </div>
                 </section>
-                <section class="section" style="--index: 1">
+                <section class="section" style="--room: 1; --index: 1">
                     <div class="section__main-img js-trigger">
                         <img src="./assets/images/rdm2.jpg" alt="" />
                     </div>
@@ -61,8 +68,11 @@
                         >
                         <a class="btn btn__section" href="">En savoir plus</a>
                     </div>
+                    <div class="background">
+                        <span>What about you? Let's find out!</span>
+                    </div>
                 </section>
-                <section class="section about" style="--index: -1">
+                <section class="section about" style="--room: -1; --index: 2">
                     <div class="section__title js-trigger">
                         <h2 class="title">À propos de Reaklab</h2>
                     </div>
@@ -79,8 +89,14 @@
                         </p>
                         <a class="btn btn__section" href="">En savoir plus</a>
                     </div>
+                    <div class="background">
+                        <span>À propos de Reaklab</span>
+                    </div>
                 </section>
-                <section class="section section__projects" style="--index: -3">
+                <section
+                    class="section section__projects"
+                    style="--room: -3; --index: 3"
+                >
                     <h2 class="title title--left">
                         Découvrir une sélection de projets
                     </h2>
@@ -114,6 +130,9 @@
                             <span class="section__text">Lorem merol lorem</span>
                         </li>
                     </ul>
+                    <div class="background">
+                        <span>Projets</span>
+                    </div>
                 </section>
             </main>
         </div>
