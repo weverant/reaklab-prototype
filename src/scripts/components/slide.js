@@ -42,9 +42,9 @@ const scrollDirection = (currIndex, positive) => {
         const active = document.querySelector(".active");
         const imgNext = nextSection.querySelector(".section__main-img");
         const imgActive = active.querySelector(".section__main-img");
+        setActive.call(next);
         imgTransform(imgActive);
         reverse(imgNext);
-        setActive.call(next);
     }
 };
 

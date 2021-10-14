@@ -27,10 +27,8 @@
     background: 0 0;
     cursor: pointer;
 
-    // margin-right: 2rem;
-
     span{
-        font-size: 1rem;
+        font-size: clamp(14px,1rem,1rem);
     }
 
     &__icon {
@@ -40,7 +38,7 @@
 
         span{
             display: block;
-            height: 0.06em;
+            height: clamp(1px,0.06em,0.06em);
             width: 1rem;
             position: absolute;
             left: 50%;
